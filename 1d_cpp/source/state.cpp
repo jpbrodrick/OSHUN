@@ -232,7 +232,7 @@ void SHarmonic1D::checknan(){
 
     for (size_t i(0); i<numx();++i){
         for (size_t p(0); p<nump();++p){
-            if ((isnan((*sh)(p,i).real())) || (isnan((*sh)(p,i).imag())))
+            if ((std::isnan((*sh)(p,i).real())) || (std::isnan((*sh)(p,i).imag())))
             {
                 std::cout << "NaN @ (" << p << "," << i << ")\n";
                 exit(1);
@@ -1075,7 +1075,7 @@ void DistFunc1D::checknan(){
     for (int indx(0); indx<dim();++indx){
         for (size_t i(0); i<(*df)[indx].numx();++i){
             for (size_t p(0); p<(*df)[indx].nump();++p){
-                if (  isnan((*df)[indx](p,i).real()) || isnan((*df)[indx](p,i).imag())   )
+                if (  std::isnan((*df)[indx](p,i).real()) || std::isnan((*df)[indx](p,i).imag())   )
                 {
                     std::cout << "NaN @ (" << indx << "," << p << "," << i << ")\n";
                     exit(1);
