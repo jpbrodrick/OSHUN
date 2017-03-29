@@ -1,3 +1,5 @@
+# ![PICKSC Logo](http://exodus.physics.ucla.edu/~uclapic/repo_images/PICKSC-logo-OSHUN.png)
+
 # OSHUN
 
 OSHUN is a parallel Vlasov-Fokker-Planck plasma simulation code that employs an arbitrary-order spherical harmonic velocity-space decomposition.
@@ -22,6 +24,8 @@ Please note: The build may need to be configured for compilers and HDF5 librarie
 
 The build process creates an executable ```oshun-1d.e``` in the bin directory. Example inputdecks are available in the input directory.  The executable and inputdeck files can be copied and moved to any desired location. Output will be placed in the current directory.
 
+There is a HTML manual in ```1d_cpp/manual.html```. There are also loaders and plotters to perform Braginskii-style transport tests using inputdecks provided in ```1d_cpp/inputdecks-for-example-1```
+
 # Installation for 1D Python code
 
 The 1D Python version of OSHUN uses the Cmake build system. Make sure this is installed on your system. After cloning the repository, use a terminal (i.e. command line) and navigate to the OSHUN repository. Then go into the 1d_python subdirectory. From there:
@@ -42,6 +46,3 @@ python oshun.zip ../examples/sample-spitzer.py
 (With Windows replace all ```/``` with ```\```)
 
 Output should immediately be in the ```output``` subdirectory. The ```oshun.zip``` file can be copied and moved to any desired location. Input decks can exist in any directory as well. Just make sure the fully-qualified names are passed to python (i.e. ```python /full/path/to/oshun.zip /full/path/to/inputdeck```). Output will be placed in the current directory.
-
-
-![UCLA PickSE](http://169.232.154.80/oshun.jpg)
