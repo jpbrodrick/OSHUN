@@ -10,7 +10,7 @@ OPTFLAGS = -O2 -std=c++0x -ftree-vectorize
 DBGFLAGS = -v -g -O0 -Wall -pedantic 
 
 # HDF5 libraries
-H5LIB =  -lhdf5_cpp -lhdf5 
+H5LIB =  -L/usr/local/lib -I/usr/local/include -lhdf5_cpp -lhdf5 
 
 # INTEL compilers
 #OPTFLAGS = -O3
@@ -31,8 +31,8 @@ BUILDOBJECTS = ${addprefix ${TMP_DIR}/,${OBJECTS}}
 BUILDEXEC = ${addprefix ${EXEC_DIR}/,${EXEC}}
 
 ${BUILDEXEC} : ${BUILDOBJECTS}
-	-${COMPILER} ${OPTFLAGS} $(H5LIB) -o ${BUILDEXEC} \
-	${BUILDOBJECTS} 
+	-${COMPILER} ${OPTFLAGS} -o ${BUILDEXEC} \
+	${BUILDOBJECTS} $(H5LIB) 
 
 clean ::
 	rm -f ${BUILDOBJECTS}
@@ -41,7 +41,7 @@ clean ::
 
 debug :
 	${COMPILER} ${DBGFLAGS} $(H5LIB) -o ${BUILDEXEC} \
-	%.cpp
+	${BUILDOBJECTS}
 
 ./tmp/%.o: %.cpp
 	$(COMPILER) $(OPTFLAGS) -c -o $@ $<

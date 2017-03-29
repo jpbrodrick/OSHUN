@@ -9,5 +9,5 @@ git log --pretty=format:'%h : %s' --graph >> version.txt
 printf "\n\n (PICKSC made this)" >> version.txt
 
 cd source
-make
-#make debug
+#make
+make debug
