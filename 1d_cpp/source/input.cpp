@@ -74,6 +74,9 @@ Input::Input_List::Input_List():
     smaller_dt(1e-5),
     NB_algorithms(4),
 
+//          Switch for user-input Log Lambda
+    user_lnLambda_switch(0),
+    lnLambda(1.0),
 
 //          Hydro parameters
     hydromotion(0),
@@ -1083,6 +1086,14 @@ Input::Input_List::Input_List():
                 }
                 deckfile >> deckstringbool;
                 only_output = (deckstringbool[0] == 't' || deckstringbool[0] == 'T');
+            }
+            if (deckstring == "user_lnLambda_switch") {
+                deckfile >> deckequalssign;
+                if(deckequalssign != "=") {
+                    std::cout << "Error reading " << deckstring << std::endl;
+                    exit(1);
+                }
+                deckfile >> user_lnLambda_switch;
             }
             if (deckstring == "lnLambda") {
                 deckfile >> deckequalssign;

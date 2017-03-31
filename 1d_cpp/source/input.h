@@ -68,7 +68,7 @@ namespace Input{
         size_t numpx, nump1, nump2, nump3;
 
 //          Electron-ion collisions
-        double lnLambda, density_np;
+        double density_np;
 
 //          Electron-electron collisions
         size_t RB_D_itmax;
@@ -77,6 +77,9 @@ namespace Input{
         double smaller_dt;
         int NB_algorithms;
 
+//          Switch for user-input Coulomb Logarithm
+        bool user_lnLambda_switch;
+        double lnLambda;
 
 //          Hydro parameters
         bool hydromotion;
