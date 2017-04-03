@@ -1093,7 +1093,8 @@ Input::Input_List::Input_List():
                     std::cout << "Error reading " << deckstring << std::endl;
                     exit(1);
                 }
-                deckfile >> user_lnLambda_switch;
+                deckfile >> deckstringbool;
+                user_lnLambda_switch = (deckstringbool[0] == 't' || deckstringbool[0] == 'T');
             }
             if (deckstring == "lnLambda") {
                 deckfile >> deckequalssign;
