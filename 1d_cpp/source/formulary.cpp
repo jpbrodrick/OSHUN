@@ -226,6 +226,7 @@ Formulary::Formulary() : n(Input::List().density_np),
 double Formulary::LOGee(double ne, double Te) {   
 //   ne =  density/np, Te = energy/mc^2
 //   Note: we assume nonrelativistic distribution functions
+    if(Input::List().user_lnLambda_switch) return Input::List().lnLambda;
     if (ne < nmin) return 2.0; 
 
     // Te /= (3.0*ne);
@@ -240,7 +241,6 @@ double Formulary::LOGee(double ne, double Te) {
 
 double Formulary::LOGee(double ne, string un, double Te, string uT) {   
 //   where "un" are the units of ne, and uT of Te
-    if(Input::List().user_lnLambda_switch) return Input::List().lnLambda;
     Te /= Units("Energy",uT).d; 
     ne /= Units("Density",un).d;
 
