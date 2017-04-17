@@ -730,9 +730,9 @@ void Node_Communications::mirror_bound_Xleft(State1D& Y) {
 
     for (int c(0); c < Nbc; ++c) {
 // 			Ey
-        Y.EMF().Ey()(c) *= -1.0; // left  boundary
+        Y.EMF().Ex()(c) *= -1.0; // left  boundary
 // 			Ez
-        Y.EMF().Ez()(c) *= -1.0; // left  boundary
+        //Y.EMF().Ez()(c) *= -1.0; // left  boundary
 // 			Bx
         Y.EMF().Bx()(c) *= -1.0; // left  boundary
 
@@ -788,9 +788,9 @@ void Node_Communications::mirror_bound_Xright(State1D& Y) {
 
     for (int c(0); c < Nbc; ++c) {
         //Ey
-        Y.EMF().Ey()(Nx-c-1) *= -1.0; // right boundary
+        Y.EMF().Ex()(Nx-c-1) *= -1.0; // right boundary
         //Ez
-        Y.EMF().Ez()(Nx-c-1) *= -1.0; // right boundary
+        //Y.EMF().Ez()(Nx-c-1) *= -1.0; // right boundary
         //Bx
         Y.EMF().Bx()(Nx-c-1) *= -1.0; // right boundary
 
@@ -801,12 +801,12 @@ void Node_Communications::mirror_bound_Xright(State1D& Y) {
     {
         // Hydro Quantities:   x0 "Left-Bound ---> Right-Guard"
         for(int c(0); c < Nbc; c++) {
-            Y.HYDRO().density(Y.EMF().Ex().numx()-Nbc+c) =  Y.HYDRO().density(Y.EMF().Ex().numx()-2*Nbc+c);
-            Y.HYDRO().temperature(Y.EMF().Ex().numx()-Nbc+c) =  Y.HYDRO().temperature(Y.EMF().Ex().numx()-2*Nbc+c);
-            Y.HYDRO().Z(Y.EMF().Ex().numx()-Nbc+c) =  Y.HYDRO().Z(Y.EMF().Ex().numx()-2*Nbc+c);
+            Y.HYDRO().density(Y.EMF().Ex().numx()-c-1) =  Y.HYDRO().density(Y.EMF().Ex().numx()-2*Nbc+c);
+            Y.HYDRO().temperature(Y.EMF().Ex().numx()-c-1) =  Y.HYDRO().temperature(Y.EMF().Ex().numx()-2*Nbc+c);
+            Y.HYDRO().Z(Y.EMF().Ex().numx()-c-1) =  Y.HYDRO().Z(Y.EMF().Ex().numx()-2*Nbc+c);
             
 
-            Y.HYDRO().vx(Y.EMF().Ex().numx()-Nbc+c) *=  -1.0;
+            Y.HYDRO().vx(Y.EMF().Ex().numx()-c-1) *=  -1.0;
         }
     }
 
