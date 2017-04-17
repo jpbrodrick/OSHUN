@@ -84,10 +84,9 @@ self_f00_implicit_step::self_f00_implicit_step(const size_t &nump, const double 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     /// Laser
-    for (size_t i(0); i < vr.size(); ++i) {
+    for (size_t i(0); i < vr.size()-1; ++i) {
         laser_Inv_Uav6[i] = pow( 2.0/(vr[i+1]+vr[i]), 6);
     }
-
     double omega_0(3.0e+10*2.0*M_PI/(1.0e-4*Input::List().lambda_0));
     double omega_p(5.64 * 1.0e+4*sqrt(Input::List().density_np));
     vw_coeff_cube = omega_p/omega_0 * c_kpre;
@@ -1151,7 +1150,7 @@ void  self_flm_implicit_step::advance(valarray<complex<double> >& fin, const int
         double B4(         ( 0.5 *LL*(LL+1.0) - LL      ) / ((2.0*LL+1.0)*(2.0*LL-1.0)) );
 
 //     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-        for (int i(0); i < Alpha.dim1()-1; ++i){
+        for (int i(1); i < Alpha.dim1()-1; ++i){
             double t1( A1*ddf0[i] + B1*df0[i] );
             t1 *= (-1.0) * _LOGee * kpre * Dt;
             double t2( A1*ddf0[i] + B2*df0[i] );
