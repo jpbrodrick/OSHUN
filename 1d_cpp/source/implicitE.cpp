@@ -265,7 +265,7 @@
 
 //--------------------------------------------------------------
     void Electric_Field_Methods::Implicit_E_Field::
-    advance(Algorithms::RK3<State1D>* rk, State1D& Yin, collisions& coll, VlasovFunctor1D_implicitE_p2* rkF){//, double time, double dt){
+    advance(Algorithms::RK2<State1D>* rk, State1D& Yin, collisions& coll, VlasovFunctor1D_implicitE_p2* rkF){//, double time, double dt){
 //--------------------------------------------------------------
 //  Calculate the implicit electric field
 //--------------------------------------------------------------

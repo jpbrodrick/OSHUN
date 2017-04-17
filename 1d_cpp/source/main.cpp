@@ -173,7 +173,7 @@ int main(int argc, char** argv) {
 //    InverseBremsstrahlung IB(Y.DF(0).pmax(),Y.SH(0,0,0).nump(),Y.SH(0,0,0).numx(),tout_start,grid.axis.x(0));
     Hydro_Functor         HydroFunc(grid.axis.xmin(0), grid.axis.xmax(0), grid.axis.Nx(0));
 
-    Algorithms::RK3<State1D> RK(Y);
+    Algorithms::RK2<State1D> RK(Y);
 
     // Algorithms::LEAPs<State1D> LEAP(Y);
     // Algorithms::PEFRL<State1D> MAGIC(Y);

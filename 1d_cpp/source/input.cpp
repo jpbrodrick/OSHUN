@@ -1572,7 +1572,7 @@ Input::Input_List::Input_List():
 
         // Determination of the local computational domain (i.e. the x-axis and the y-axis)
 
-        BoundaryCells = 4;
+        BoundaryCells = 2;
 
         for (size_t i(0); i < xminGlobal.size(); ++i){
             NxLocalnobnd.push_back(NxGlobal[i]/ NnodesX) ;
